@@ -1,14 +1,42 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>PAGE 2</title>
-  <link href="style2.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack - En jeu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-
 <body>
-  Hello world
+    <div class="container">
+        <h1>Blackjack</h1>
+        <h2>Main du Joueur : {{ main_joueur }}</h2>
+        <h2>Main du Croupier : {{ main_croupier[0] }} et ?</h2>
+        <form action="{{ url_for('blackjack') }}" method="post">
+            <input type="hidden" name="action" value="tirer">
+            {% for carte in jeu_de_cartes %}
+                <input type="hidden" name="jeu_de_cartes" value="{{ carte }}">
+            {% endfor %}
+            {% for carte in main_joueur %}
+                <input type="hidden" name="main_joueur" value="{{ carte }}">
+            {% endfor %}
+            {% for carte in main_croupier %}
+                <input type="hidden" name="main_croupier" value="{{ carte }}">
+            {% endfor %}
+            <button type="submit">Tirer une carte</button>
+        </form>
+        <form action="{{ url_for('blackjack') }}" method="post">
+            <input type="hidden" name="action" value="rester">
+            {% for carte in jeu_de_cartes %}
+                <input type="hidden" name="jeu_de_cartes" value="{{ carte }}">
+            {% endfor %}
+            {% for carte in main_joueur %}
+                <input type="hidden" name="main_joueur" value="{{ carte }}">
+            {% endfor %}
+            {% for carte in main_croupier %}
+                <input type="hidden" name="main_croupier" value="{{ carte }}">
+            {% endfor %}
+            <button type="submit">Rester</button>
+        </form>
+    </div>
 </body>
-
 </html>
