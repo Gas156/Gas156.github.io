@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack - Résultat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Résultat</h1>
+        <h2>Main du Joueur : {{ main_joueur }}</h2>
+        <h2>Points du Joueur : {{ points_joueur }}</h2>
+        <h2>Main du Croupier : {{ main_croupier }}</h2>
+        <h2>Points du Croupier : {{ points_croupier }}</h2>
+        {% if points_joueur > 21 %}
+            <p>Vous avez dépassé 21. Vous perdez.</p>
+        {% elif points_croupier > 21 or points_joueur > points_croupier %}
+            <p>Félicitations ! Vous gagnez !</p>
+        {% elif points_joueur == points_croupier %}
+            <p>C'est un match nul.</p>
+        {% else %}
+            <p>Désolé, vous perdez.</p>
+        {% endif %}
+        <a href="{{ url_for('index') }}">Rejouer</a>
+    </div>
+</body>
+</html>
