@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-
 <body>
-  Hello world
+    <div class="container">
+        <h1>Bienvenue dans le jeu de Blackjack !</h1>
+        <form action="{{ url_for('blackjack') }}" method="post">
+            <input type="hidden" name="action" value="start">
+            <button type="submit">Commencer une nouvelle partie</button>
+        </form>
+    </div>
 </body>
-
 </html>
