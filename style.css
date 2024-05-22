@@ -3,11 +3,12 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #ffffff; /* Fond blanc */
+    color: #000000; /* Texte noir */
 }
 
 header {
-    background-color: #333;
+    background-color: #333333; /* Fond noir */
     color: white;
     padding: 10px 0;
 }
@@ -40,13 +41,10 @@ section {
 }
 
 footer {
-    background-color: #333;
+    background-color: #333333; /* Fond noir */
     color: white;
     padding: 10px 0;
     position: fixed;
     width: 100%;
     bottom: 0;
 }
-
-
-
